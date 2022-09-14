@@ -45,19 +45,22 @@ while (true)
                 Console.WriteLine($"You will baptise everybode as a priest!!! You will have this stats: {healtPriest} healt, {attackPriest} attack and {magicPriest} of magic");
                 break;
         }
-
-        Console.WriteLine("Choose a number between 0 and 1, you have 3 opportunities!");
-        string? player = Console.ReadLine();
+        
         int playerWins = 0;
         
-        Random rnd = new Random();
-        int beast = rnd.Next(0, 2);
-        string monster = beast.ToString();
+
         int beastWins = 0;
-
-
+        bool hasLost = false;
+        
         do
         {
+            Console.WriteLine("Choose a number between 0 and 1, you have 3 opportunities!");
+            string? player = Console.ReadLine();
+            
+            Random rnd = new Random();
+            int beast = rnd.Next(0, 2);
+            string monster = beast.ToString();
+            
             if (player == monster)
             {
                 Console.WriteLine($"beast had number {beast}, you wone!");
@@ -65,7 +68,7 @@ while (true)
                 Console.WriteLine($"Player has: {playerWins} points.");
 
             }
-            else
+            else if(player != monster)
             {
                 Console.WriteLine($"beast had number {beast}, too bad!");
                 beastWins++;
@@ -73,7 +76,13 @@ while (true)
                 
             }
 
-        } while (playerWins > 3);
+            if ((playerWins == 3)||(beastWins == 3 ))
+            {
+                hasLost = true;
+            }
+            
+        }
+        while (!hasLost);
         
         break;
     }
