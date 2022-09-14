@@ -47,8 +47,6 @@ while (true)
         }
         
         int playerWins = 0;
-        
-
         int beastWins = 0;
         bool hasLost = false;
         
@@ -76,9 +74,19 @@ while (true)
                 
             }
 
-            if ((playerWins == 3)||(beastWins == 3 ))
+            if (playerWins == 3)
             {
                 hasLost = true;
+                Console.WriteLine($"player wins with 3 points");
+                Console.Write("\nPress any key to continue... ");
+                Console.ReadLine();
+            }
+            else if (beastWins == 3 )
+            {
+                hasLost = true;
+                Console.WriteLine($"monster wins with 3 points!");
+                Console.Write("\nPress any key to continue... ");
+                Console.ReadLine();
             }
             
         }
