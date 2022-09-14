@@ -61,7 +61,7 @@ while (true)
             
             if (player == monster)
             {
-                Console.WriteLine($"beast had number {beast}, you wone!");
+                Console.WriteLine($"beast had number {beast}, you won!");
                 playerWins++;
                 Console.WriteLine($"Player has: {playerWins} points.");
 
